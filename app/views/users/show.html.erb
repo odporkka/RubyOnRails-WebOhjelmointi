@@ -1,0 +1,38 @@
+<p id="notice"><%= notice %></p>
+
+<h2>
+  <strong><%= @user.username %></strong>
+</h2>
+
+<h4> Club memberships:</h4>
+
+<ul>
+  <% @user.memberships.each do |membership| %>
+      <li>
+        <%= link_to membership.beer_club.name, membership.beer_club %>, joined at: <%= membership.created_at.to_date.to_s%>
+        <% if @user == current_user %>
+            <%= link_to 'delete', membership, method: :delete, data: { confirm: 'Are you sure?' } %>
+        <% end %>
+      </li>
+  <% end %>
+</ul>
+
+<p>
+<h4>Has made <%= pluralize(@user.ratings.count, 'rating')%>, average <%= @user.average_rating %>:</h4>
+</p>
+
+<ul>
+  <% @user.ratings.each do |rating| %>
+  <li>
+    <%= rating.to_s %>
+    <% if @user == current_user %>
+        <%= link_to 'delete', rating, method: :delete, data: { confirm: 'Are you sure?' } %>
+    <% end %>
+  </li>
+  <% end %>
+</ul>
+
+<% if @user == current_user %>
+<%= link_to 'Edit', edit_user_path(@user) %> |
+<%= link_to 'Destroy', user_path, method: :delete, data: { confirm: 'Are you sure?' } %>
+<% end %>
