@@ -8,5 +8,8 @@ script:
  - bundle exec rspec -fd spec/
 deploy:
   provider: heroku
+  app: radiant-atoll-92915 
   api_key:
     secure: bdUoS7O85bZzI4JXjOjkBEZEX/0I9NfikpJOdBBLvgPIOdwcoSLbAYOGoMHS9k0VfGOFVVqOfIfJUrFtg3rVOkNPh7DAwB+wTVGtADLUokcHrvFT5ttodaX8TNfwtz5L3hZlqBePcT+swJ68nFtQ3PTNnNofaJ0q0K48T96ec0N62XL+rDPrXZHoqwr9qjh4eP6mgNkDCKb753BUlTW3rIkv8CO963HeLhFTaPO3vrHwhYOm6oKfF7zQAfTcKBufitV7rwE21EbS5JMx1kvYpWNQ8x1G5jGTvMpofA+XMO9sOwWvQ3QA+G5YlbELXMZxqhVnd/d3odHQEcprznA+sQy7t/ljyBS8o1ZQ4SEAccONHmQm7iSjHZRpedBrPPjAfNVEi5yx3wwQgJubFEcg76rnsCEkRsdSODm6/y1Zxxyhod2YkqAcHJ0grys9yEi2Q5Z1Mtv9waxrQ2jnbr+Cwq5KosOPZcubQihp7wYng4qEp+uDANJ/ys6sTRRA5ZU9uqkG5ygpW0VF1x8jbDxkFSJNXsQErP/h/cCSQZRXnzf9TaaxcBSXwNr8BscRkRWOkSWsJKole3G44+HhcNLEfhK0D0xGzmTbSIMhJPMdUXniuBBScngcUAKu8jm779zoa/BzE8gVNv5mIRNQqyEzb4hmhghR1HE7RVO6v2FEI1k=
+
+  run: "rake db:migrate"
