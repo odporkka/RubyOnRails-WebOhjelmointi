@@ -3,7 +3,5 @@
 App for Ruby On Rails Web development course, spring 2017.
 
 * Heroku: https://radiant-atoll-92915.herokuapp.com/breweries
+* Travis: [![Build Status](https://travis-ci.org/odporkka/rubyonrails2017.png)](https://travis-ci.org/odporkka/rubyonrails2017)
 
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
