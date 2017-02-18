@@ -1,6 +1,8 @@
 require 'rails_helper'
 
 RSpec.describe Beer, type: :model do
+
+
   it "is saved with name and style" do
     beer = Beer.create name:"Keskikeppana", style: "Lager"
     expect(beer).to be_valid

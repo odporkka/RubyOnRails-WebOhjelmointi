@@ -4,6 +4,11 @@ include Helpers
 
 describe "Beer" do
   let!(:brewery) { FactoryGirl.create :brewery, name: "Koff" }
+  let!(:user) { FactoryGirl.create :user }
+
+  before :each do
+    sign_in(username:"Pekka", password:"Foobar1")
+  end
 
   it "when valid beer is added, it is also added to database" do
     visit new_beer_path
