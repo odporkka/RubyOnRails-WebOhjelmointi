@@ -17,20 +17,27 @@
   <% end %>
 </ul>
 
-<p>
-<h4>Has made <%= pluralize(@user.ratings.count, 'rating')%>, average <%= @user.average_rating %>:</h4>
-</p>
+<% if @user.ratings.any? %>
+    <p><strong> Favorite beer:</strong> <%= @user.favorite_beer.name %> </p>
+    <p><strong> Favorite brewery:</strong> <%= @user.favorite_brewery.name %> </p>
+    <p><strong> Favorite style:</strong> <%= @user.favorite_style %> </p>
 
-<ul>
-  <% @user.ratings.each do |rating| %>
-  <li>
-    <%= rating.to_s %>
-    <% if @user == current_user %>
-        <%= link_to 'delete', rating, method: :delete, data: { confirm: 'Are you sure?' } %>
-    <% end %>
-  </li>
-  <% end %>
-</ul>
+    <p><strong> Average rating:</strong> <%= @user.average_rating %></p>
+
+    <p><strong>Has made <%= pluralize(@user.ratings.count, 'rating')%>:</strong></p>
+
+    <ul>
+      <% @user.ratings.each do |r| %>
+          <li>
+            <%= r %>
+            <% if @user == current_user %>
+                <%= link_to 'delete', r, method: :delete, data: { confirm: 'Are you sure?' } %>
+            <% end %>
+          </li>
+      <% end %>
+    </ul>
+
+<% end %>
 
 <% if @user == current_user %>
 <%= link_to 'Edit', edit_user_path(@user) %> |
