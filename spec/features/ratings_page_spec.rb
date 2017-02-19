@@ -4,8 +4,9 @@ include Helpers
 
 describe "Rating" do
   let!(:brewery) { FactoryGirl.create :brewery, name:"Koff" }
-  let!(:beer1) { FactoryGirl.create :beer, name:"iso 3", brewery:brewery }
-  let!(:beer2) { FactoryGirl.create :beer, name:"Karhu", brewery:brewery }
+  let!(:style) { FactoryGirl.create :style }
+  let!(:beer1) { FactoryGirl.create :beer, name:"iso 3", brewery:brewery, style: style }
+  let!(:beer2) { FactoryGirl.create :beer, name:"Karhu", brewery:brewery, style: style }
   let!(:user) { FactoryGirl.create :user }
 
   before :each do
@@ -15,7 +16,7 @@ describe "Rating" do
   it "when given, is registered to the beer and user who is signed in" do
     visit new_rating_path
     select('iso 3', from:'rating[beer_id]')
-    fill_in('rating[score]', with:'15')
+    fill_in('rating[score]', with:'9')
 
     expect{
       click_button "Create Rating"
@@ -23,7 +24,7 @@ describe "Rating" do
 
     expect(user.ratings.count).to eq(1)
     expect(beer1.ratings.count).to eq(1)
-    expect(beer1.average_rating).to eq(15.0)
+    expect(beer1.average_rating).to eq(9.0)
   end
 
   describe "when there is ratings" do
@@ -36,8 +37,8 @@ describe "Rating" do
 
     it "added ratings are shown on ratings page" do
       visit ratings_path
-      expect(page).to have_content('anonymous, 10')
-      expect(page).to have_content('anonymous, 20')
+      expect(page).to have_content('anonymous, 5')
+      expect(page).to have_content('anonymous, 9')
     end
   end
 end

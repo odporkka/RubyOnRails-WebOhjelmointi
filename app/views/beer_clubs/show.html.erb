@@ -15,11 +15,24 @@
   <%= @beer_club.city %>
 </p>
 
-<h4>Members (<%= @memberships.count%> total):</h4>
+<% if current_user && @is_a_member == false %>
+    <%= form_for(@membership) do |f| %>
+        <%= f.hidden_field :beer_club_id %>
+        <%= f.submit value: "Join the club!" %>
+    <% end %>
+<% end %>
+<% if current_user && @is_a_member == true %>
+    <%= form_for(@membership, method: "delete") do |f| %>
+        <%= f.hidden_field :beer_club_id %>
+        <%= f.submit value: "End the membership!" %>
+    <% end %>
+<% end %>
+
+<h4>Members (<%= @memberships.count %> total):</h4>
 <ul>
   <% @memberships.each do |membership| %>
       <li>
-        <%= link_to membership.user.username, membership.user %>, joined: <%= membership.created_at.to_date.to_s%>
+        <%= link_to membership.user.username, membership.user %>, joined: <%= membership.created_at.to_date.to_s %>
       </li>
   <% end %>
 </ul>

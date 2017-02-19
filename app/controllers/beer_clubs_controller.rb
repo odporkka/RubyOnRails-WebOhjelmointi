@@ -1,5 +1,6 @@
 class BeerClubsController < ApplicationController
   before_action :set_beer_club, only: [:show, :edit, :update, :destroy]
+  before_action :is_a_member, only: [:show, :edit, :update, :destroy]
   before_action :ensure_that_signed_in, except: [:index, :show]
 
   # GET /beer_clubs
@@ -11,7 +12,17 @@ class BeerClubsController < ApplicationController
   # GET /beer_clubs/1
   # GET /beer_clubs/1.json
   def show
+    is_a_member
     @memberships = Membership.all
+    @membership = Membership.new
+    @membership.beer_club_id = params[:id]
+    if current_user && @is_a_member == true
+      @beer_club.memberships.each do |m|
+        if m.user_id.equal?(current_user.id)
+          @membership = m
+        end
+      end
+    end
   end
 
   # GET /beer_clubs/new
@@ -64,13 +75,22 @@ class BeerClubsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_beer_club
-      @beer_club = BeerClub.find(params[:id])
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_beer_club
+    @beer_club = BeerClub.find(params[:id])
+  end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def beer_club_params
-      params.require(:beer_club).permit(:name, :founded, :city)
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def beer_club_params
+    params.require(:beer_club).permit(:name, :founded, :city)
+  end
+
+  def is_a_member
+    @is_a_member = false
+    @beer_club.memberships.each do |m|
+      if m.user_id.equal?(current_user.id)
+        @is_a_member = true
+      end
     end
+  end
 end

@@ -27,7 +27,7 @@ RSpec.describe User, type: :model do
       user.ratings << FactoryGirl.create(:rating2)
 
       expect(user.ratings.count).to eq(2)
-      expect(user.average_rating).to eq(15.0)
+      expect(user.average_rating).to eq(7.0)
     end
   end
 
@@ -55,17 +55,17 @@ RSpec.describe User, type: :model do
     end
 
     it "is the style of only rated if only one rating" do
-      create_beer_with_rating(FactoryGirl.create(:brewery) , "lager", user, 25)
+      create_beer_with_rating(FactoryGirl.create(:brewery) , FactoryGirl.create(:style, name: "lager"), user, 4)
 
-      expect(user.favorite_style).to eq("lager")
+      expect(user.favorite_style.name).to eq("lager")
     end
 
     it "is the style with best average if many ratings" do
-      create_beers_with_ratings(FactoryGirl.create(:brewery), "helles", user, 10, 7, 9)
-      create_beers_with_ratings(FactoryGirl.create(:brewery), "ipa", user, 35, 45)
-      create_beers_with_ratings(FactoryGirl.create(:brewery), "dunkel", user, 50, 10, 15, 20)
+      create_beers_with_ratings(FactoryGirl.create(:brewery), FactoryGirl.create(:style, name: "helles"), user, 10, 7, 9)
+      create_beers_with_ratings(FactoryGirl.create(:brewery), FactoryGirl.create(:style, name: "ipa"), user, 10, 9)
+      create_beers_with_ratings(FactoryGirl.create(:brewery), FactoryGirl.create(:style, name: "dunkel"), user, 9, 10, 5, 8)
 
-      expect(user.favorite_style).to eq("ipa")
+      expect(user.favorite_style.name).to eq("ipa")
     end
   end
 end

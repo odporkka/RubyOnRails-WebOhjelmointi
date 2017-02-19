@@ -4,6 +4,7 @@ include Helpers
 
 describe "Beer" do
   let!(:brewery) { FactoryGirl.create :brewery, name: "Koff" }
+  let!(:style) { FactoryGirl.create :style }
   let!(:user) { FactoryGirl.create :user }
 
   before :each do
@@ -13,6 +14,7 @@ describe "Beer" do
   it "when valid beer is added, it is also added to database" do
     visit new_beer_path
     fill_in('beer_name', with: 'Keskikeppana')
+    select('Lager', from:'beer[style_id]')
 
     expect {
       click_button('Create Beer')

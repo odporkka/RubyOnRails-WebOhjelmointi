@@ -1,0 +1,7 @@
+<h2>Styles</h2>
+
+<% @styles.each do |style| %>
+    <br>
+    <h4><%= link_to style.name, style %> </h4>
+    <%= style.description %>
+<% end %>

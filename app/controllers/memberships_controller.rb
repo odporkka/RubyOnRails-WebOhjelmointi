@@ -29,7 +29,7 @@ class MembershipsController < ApplicationController
 
     if @membership.save
       current_user.memberships << @membership
-      redirect_to user_path current_user
+      redirect_to beer_club_path(@membership.beer_club_id), notice: "Welcome to club #{current_user.username}!"
     else
       @beer_clubs = BeerClub.all
       render :new
@@ -54,8 +54,9 @@ class MembershipsController < ApplicationController
   # DELETE /memberships/1.json
   def destroy
     @membership.destroy
+    club = @membership.beer_club.name
     respond_to do |format|
-      format.html { redirect_to memberships_url, notice: 'Membership was successfully destroyed.' }
+      format.html { redirect_to user_path(current_user.id), notice: "Membership in #{club} ended." }
       format.json { head :no_content }
     end
   end
