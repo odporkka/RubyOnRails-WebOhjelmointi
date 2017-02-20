@@ -1,6 +1,7 @@
 defaults: &defaults
-APIKEY: #key for beermapping-api
-
+  APIKEY: #key for beermapping-api
+  MAP_APIKEY: #key for google maps
+  WEATHER_APIKEY: #key for weather
 development:
         <<: *defaults
 test:

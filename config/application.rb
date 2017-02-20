@@ -7,7 +7,7 @@ require 'rails/all'
 Bundler.require(*Rails.groups)
 
 # Load application ENV vars and merge with existing ENV vars. Loaded here so can use values in initializers.
-ENV.update YAML.load_file('config/application.yml')[Rails.env] rescue {}
+ENV.update YAML.load(File.read('config/application.yml'))[Rails.env] rescue {}
 
 module Ratebeer
   class Application < Rails::Application

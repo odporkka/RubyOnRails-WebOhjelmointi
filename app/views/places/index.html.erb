@@ -5,6 +5,14 @@
     <%= submit_tag "Search" %>
 <% end %>
 
+<% if @last_city %>
+<h3>Current beer weather in <%= @last_city %>:</h3>
+    <img src= <%= @weather.current['condition']['icon'] %>>
+    <p><%= @weather.current['condition']['text'] %></p>
+    <p><%= @weather.current['temp_c'] %></p>
+<% end %>
+
+<h4>Places to grab a pint: </h4>
 <% if @places %>
     <table>
       <thead>
