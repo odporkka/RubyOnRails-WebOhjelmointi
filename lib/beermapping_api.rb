@@ -26,6 +26,8 @@ class BeermappingApi
     response = HTTParty.get "#{url}#{ERB::Util.url_encode(city)}"
     weather = response.parsed_response
 
+    return [] if weather.is_a?(Hash) and weather('current').nil?
+
     Weather.new(weather)
   end
 

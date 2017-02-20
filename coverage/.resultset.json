@@ -457,8 +457,29 @@
         null,
         null,
         1,
+        0,
+        null,
+        0,
+        0,
+        null,
+        0,
+        null,
+        0,
+        null,
+        null,
+        1,
+        4,
         4,
         null,
+        null,
+        1,
+        0,
+        0,
+        null,
+        null
+      ],
+      "/Users/ode/Koulu/ratebeer/app/models/weather.rb": [
+        1,
         null
       ],
       "/Users/ode/Koulu/ratebeer/app/models/place.rb": [
@@ -475,9 +496,15 @@
         1,
         null,
         1,
+        4,
+        4,
+        1,
+        null,
         null,
         null,
         1,
+        0,
+        0,
         0,
         null,
         null,
@@ -629,6 +656,12 @@
         0,
         0
       ],
+      "/Users/ode/Koulu/ratebeer/app/controllers/home_controller.rb": [
+        0,
+        0,
+        0,
+        0
+      ],
       "/Users/ode/Koulu/ratebeer/app/controllers/memberships_controller.rb": [
         0,
         0,
@@ -743,6 +776,6 @@
         0
       ]
     },
-    "timestamp": 1487540468
+    "timestamp": 1487614199
   }
 }
