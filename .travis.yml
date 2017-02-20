@@ -2,12 +2,13 @@ language: ruby
 rvm:
 - 2.3.1
 env:
- - APIKEY = dd3be700f05c183f8dd40f99a451d424
+  matrix:
+    secure: vpYfB530r8dB+CYjP0Mz0KoZvAtDsu55KoE2Q4WS4Z21NZA0tAWDLZglQqqLVgS7l9XzyOoQeYciCL90+iN9RWPXAk7jsUo5RWo63V2BmqgyMIFlObpg/KGzEufT9a2Tyjn7cb5eBBpF2KlNFHh05GG9U746iDQ0iB0kxdBfkuH4LoFf9RaBrh6SIgmuJdrnbOiyFv2Ye3VpzdcjDYLQY8Ry4uPHEUNNUi7OufovawKZnmqi11BWluFJ7TDcqdy6E1LswfZmz/y9qnomztQC1JDEBBT9EiJ8V09hLZY9QmmD3zn5j14c5MlcT4gizTIV/YpS52rdfMf9mJH0WzRZC3PRQe4K8mOhE8/2yuUWHiYZsJioLCvlhuEjeYYsfV9dzPADcSm1JgfDwAqdA7nwB663gcDb5SsI1gEqEHkv6rZfXEsozPdzPBoHXrgvSvmZfMnzxmeVlGXHF8ihyfyq2JtF7VqVGa62DMeAZvsFGhtGw4V52S0AnD9GdwMH+FeKDfIhSKFjd1oTS66vSZ+GZT0Frh7lrHLAgBZmeQD9iChFNklszfeme1E0BWCb8Gia7Ki0DmAw/vFOfZ6+Ad2s/0wKgJIRH6suNX48YBESEQpAgc4ltIOIny7bmEo8dwGaQ/w3ru/G+ofnpCMmGHgtx1J5S8NMpVl0xqJaiMRFOXo=
 script:
- - bundle exec rake db:drop db:create db:migrate db:seed --trace 
- - RAILS_ENV=test bundle exec rake db:migrate --trace
- - bundle exec rake db:test:prepare
- - bundle exec rspec -fd spec/
+- bundle exec rake db:drop db:create db:migrate db:seed --trace
+- RAILS_ENV=test bundle exec rake db:migrate --trace
+- bundle exec rake db:test:prepare
+- bundle exec rspec -fd spec/
 notifications:
   email: false
 deploy:
@@ -15,6 +16,4 @@ deploy:
   app: rubyonrails2017
   api_key:
     secure: bdUoS7O85bZzI4JXjOjkBEZEX/0I9NfikpJOdBBLvgPIOdwcoSLbAYOGoMHS9k0VfGOFVVqOfIfJUrFtg3rVOkNPh7DAwB+wTVGtADLUokcHrvFT5ttodaX8TNfwtz5L3hZlqBePcT+swJ68nFtQ3PTNnNofaJ0q0K48T96ec0N62XL+rDPrXZHoqwr9qjh4eP6mgNkDCKb753BUlTW3rIkv8CO963HeLhFTaPO3vrHwhYOm6oKfF7zQAfTcKBufitV7rwE21EbS5JMx1kvYpWNQ8x1G5jGTvMpofA+XMO9sOwWvQ3QA+G5YlbELXMZxqhVnd/d3odHQEcprznA+sQy7t/ljyBS8o1ZQ4SEAccONHmQm7iSjHZRpedBrPPjAfNVEi5yx3wwQgJubFEcg76rnsCEkRsdSODm6/y1Zxxyhod2YkqAcHJ0grys9yEi2Q5Z1Mtv9waxrQ2jnbr+Cwq5KosOPZcubQihp7wYng4qEp+uDANJ/ys6sTRRA5ZU9uqkG5ygpW0VF1x8jbDxkFSJNXsQErP/h/cCSQZRXnzf9TaaxcBSXwNr8BscRkRWOkSWsJKole3G44+HhcNLEfhK0D0xGzmTbSIMhJPMdUXniuBBScngcUAKu8jm779zoa/BzE8gVNv5mIRNQqyEzb4hmhghR1HE7RVO6v2FEI1k=
-
-  run: "rake db:drop db:create rake db:migrate db:seed"
-
+  run: rake db:drop db:create rake db:migrate db:seed
