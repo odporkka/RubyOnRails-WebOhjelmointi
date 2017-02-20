@@ -1,0 +1,9 @@
+defaults: &defaults
+APIKEY: #key for beermapping-api
+
+development:
+        <<: *defaults
+test:
+        <<: *defaults
+production:
+        <<: *defaults
