@@ -16,8 +16,8 @@ b7 = Brewery.create name:"Brouwerij van Hoegaarden", year: 1445
 u1 = User.create username:"Ode", password:"Qwe123", password_confirmation:"Qwe123"
 u2 = User.create username:"Masa", password:"Qwe123", password_confirmation:"Qwe123"
 
-bc1 = BeerClub.create name:"Porin panijat", founded:1995
-bc2 = BeerClub.create name:"Stadin tissuttelijat", founded:1965
+bc1 = BeerClub.create name:"Porin panijat", founded:1995, city:"Pori"
+bc2 = BeerClub.create name:"Stadin tissuttelijat", founded:1965, city:"Helsinki"
 
 Membership.create beer_club_id: 1, user_id: 1
 Membership.create beer_club_id: 1, user_id: 2

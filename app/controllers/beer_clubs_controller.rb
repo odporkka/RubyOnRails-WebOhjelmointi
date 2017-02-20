@@ -13,7 +13,7 @@ class BeerClubsController < ApplicationController
   # GET /beer_clubs/1.json
   def show
     is_a_member
-    @memberships = Membership.all
+    @memberships = @beer_club.memberships
     @membership = Membership.new
     @membership.beer_club_id = params[:id]
     if current_user && @is_a_member == true
@@ -87,9 +87,11 @@ class BeerClubsController < ApplicationController
 
   def is_a_member
     @is_a_member = false
-    @beer_club.memberships.each do |m|
-      if m.user_id.equal?(current_user.id)
-        @is_a_member = true
+    if current_user
+      @beer_club.memberships.each do |m|
+        if m.user_id.equal?(current_user.id)
+          @is_a_member = true
+        end
       end
     end
   end
