@@ -37,8 +37,8 @@ describe "Rating" do
 
     it "added ratings are shown on ratings page" do
       visit ratings_path
-      expect(page).to have_content('anonymous, 5')
-      expect(page).to have_content('anonymous, 9')
+      expect(page).to have_content('anonymous 5')
+      expect(page).to have_content('anonymous 9')
     end
   end
 end

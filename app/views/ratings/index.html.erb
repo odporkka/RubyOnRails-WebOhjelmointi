@@ -1,9 +1,59 @@
-<h2>List of ratings</h2>
+<h2>Wall of fame</h2>
 
-<p>Number of ratings: <%= @ratings.count %></p>
+<p><strong>Number of ratings: <%= @ratings.count %></strong></p>
 
-<ul>
-  <% @ratings.each do |rating| %>
-      <li> <%= rating %> <%= link_to rating.user.username, rating.user %> </li>
-  <% end %>
-</ul>
+<div class="row">
+  <div class="col-sm-4">
+    <h4>Top 3 beers </h4>
+    <%= render 'rating_list', top: @top3beers %>
+  </div>
+  <div class="col-sm-4">
+    <h4>Top 3 breweries </h4>
+    <%= render 'rating_list', top: @top3breweries %>
+  </div>
+  <div class="col-sm-4">
+    <h4>Top 3 styles </h4>
+    <%= render 'rating_list', top: @top3styles %>
+  </div>
+</div>
+
+<div>
+  <table class="table table-condensed">
+    <thead>
+    <tr>
+      <th>Name</th>
+      <th>Favorite beer</th>
+      <th>Favorite brewery</th>
+      <th>Preferred style</th>
+      <th>Average rating</th>
+      <th>Total ratings</th>
+    </tr>
+    </thead>
+
+    <h4>Most active users</h4>
+    <tbody>
+    <% @most_active.each do |entry| %>
+        <tr>
+          <td><%= link_to entry.username, entry %> </td>
+          <td><%= link_to entry.favorite_beer.name, entry.favorite_beer %> </td>
+          <td><%= link_to entry.favorite_brewery.name, entry.favorite_brewery %> </td>
+          <td><%= link_to entry.favorite_style.name, entry.favorite_style %> </td>
+          <td><%= entry.average_rating %> </td>
+          <td><%= entry.ratings.count %> </td>
+        </tr>
+    <% end %>
+    </tbody>
+  </table>
+</div>
+
+<div>
+  <h4>Recent ratings: </h4>
+
+  <ul>
+    <% @recent.each do |rating| %>
+        <li> <%= rating %> <%= link_to rating.user.username, rating.user %> </li>
+    <% end %>
+  </ul>
+</div>
+
+

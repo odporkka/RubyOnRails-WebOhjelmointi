@@ -8,15 +8,22 @@ class User < ActiveRecord::Base
   validates :password, :format => {:with => /\A(?=.*[A-Z])(?=.*[0-9]).{4,}\z/,
                                    message: "must contain at least 1 upper case letter and 1 number!"}
 
-
   has_many :ratings, dependent: :destroy
   has_many :memberships, dependent: :destroy
   has_many :beer_clubs, through: :memberships
   has_many :beers, through: :ratings
 
+  scope :top3active, -> {
+    select("users.id, users.username, count(ratings.id) AS ratings_count").
+        joins(:ratings).
+        group("users.id").
+        order("ratings_count DESC").
+        first(5)
+  }
+
   def favorite_beer
     return nil if ratings.empty?
-    ratings.sort_by{ |r| r.score }.last.beer
+    ratings.sort_by { |r| r.score }.last.beer
   end
 
   def favorite_brewery
@@ -30,7 +37,7 @@ class User < ActiveRecord::Base
           rating: ratings.map(&:score).sum / ratings.count.to_f
       }
     end
-    averages_of_breweries.sort_by{ |b| -b[:rating] }.first[:brewery]
+    averages_of_breweries.sort_by { |b| -b[:rating] }.first[:brewery]
   end
 
   def favorite_style
@@ -44,6 +51,6 @@ class User < ActiveRecord::Base
           rating: ratings.map(&:score).sum / ratings.count.to_f
       }
     end
-    averages_of_styles.sort_by{ |b| -b[:rating] }.first[:style]
+    averages_of_styles.sort_by { |b| -b[:rating] }.first[:style]
   end
 end

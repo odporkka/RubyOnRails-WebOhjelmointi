@@ -12,6 +12,7 @@ group :development do
   gem 'spring'
   # Access an IRB console on exception pages or by using <%= console %> in views
   gem 'web-console', '~> 2.0'
+  gem 'rails_layout'
 end
 
 group :development, :test do
@@ -33,6 +34,7 @@ group :test do
   gem 'webmock'
 end
 
+gem 'bootstrap-sass'
 gem 'httparty'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.7'

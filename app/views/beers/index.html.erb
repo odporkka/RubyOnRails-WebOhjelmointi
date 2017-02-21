@@ -2,7 +2,7 @@
 
 <h2>Beers</h2>
 
-<table>
+<table class="table table-hover">
   <thead>
   <tr>
     <th>Name</th>
@@ -21,7 +21,7 @@
         <td><%= link_to beer.brewery.name, beer.brewery %></td>
         <% if current_user %>
             <td><%= link_to 'Edit', edit_beer_path(beer) %></td>
-            <td><%= link_to 'Destroy', beer, method: :delete, data: {confirm: 'Are you sure?'} %></td>
+            <td><%= link_to 'Destroy', beer, method: :delete, data: {confirm: 'Are you sure?'}, class:'btn-xs btn-danger' %></td>
         <% end %>
       </tr>
   <% end %>

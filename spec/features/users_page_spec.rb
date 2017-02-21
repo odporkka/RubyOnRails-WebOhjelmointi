@@ -25,7 +25,7 @@ describe "User" do
 
       visit user_path(User.first.id)
       expect(page).to have_content 'Has made 1 rating'
-      expect(page).to have_content 'anonymous, 5'
+      expect(page).to have_content 'anonymous (5)'
     end
 
     it "can remove own rating and its also removed from database" do
@@ -60,21 +60,13 @@ describe "User" do
     end
 
     it "those are listed at users page" do
-      expect(page).to have_content "anonymous, 10"
-      expect(page).to have_content "anonymous, 7"
-      expect(page).to have_content "anonymous, 9"
+      expect(page).to have_content "anonymous (10)"
+      expect(page).to have_content "anonymous (7)"
+      expect(page).to have_content "anonymous (9)"
     end
 
     it "only those are listed users page" do
       expect(page).to have_no_content "anonymous 50"
-    end
-
-    it "when logged in, can delete own ratings" do
-      sign_in(username:"Pekka", password:"Foobar1")
-      visit user_path(user.id)
-      expect{
-        page.all('a')[10].click
-      }.to change{Rating.count}.by(-1)
     end
 
     it "favorite style is shown at user page" do

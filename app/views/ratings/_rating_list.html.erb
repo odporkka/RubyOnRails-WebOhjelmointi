@@ -1,0 +1,23 @@
+<table class="table table-condensed">
+  <thead>
+  <tr>
+    <th>Name</th>
+    <th>Average rating</th>
+    <th>Total ratings</th>
+  </tr>
+  </thead>
+
+  <tbody>
+  <% top.each do |entry| %>
+      <tr>
+        <% if entry.has_attribute?(:name) %>
+            <td><%= link_to entry.name, entry %> </td>
+        <% else %>
+            <td><%= link_to entry.username, entry %> </td>
+        <% end %>
+        <td><%= entry.average_rating %> </td>
+        <td><%= entry.ratings.count %> </td>
+      </tr>
+  <% end %>
+  </tbody>
+</table>
