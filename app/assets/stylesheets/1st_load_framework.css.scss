@@ -39,7 +39,7 @@ img {
 // apply styles to HTML elements
 // to make views framework-neutral
 html{
-  background-image: url('beer_taps.jpg') !important;
+  background: image-url('beer_taps.jpg') !important;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
