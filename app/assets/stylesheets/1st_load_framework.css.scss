@@ -39,8 +39,9 @@ img {
 // apply styles to HTML elements
 // to make views framework-neutral
 html{
-  background: image-url('beer_taps.jpg') !important;
-  background-repeat: no-repeat !important;
+  height: 100%;
+  width: 100%;
+  background: image-url('beer_taps.jpg') no-repeat center center fixed !important;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
