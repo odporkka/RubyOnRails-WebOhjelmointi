@@ -34,6 +34,8 @@ class PlacesController < ApplicationController
   def set_weather
     if session[:last_place_search]
       @weather = BeermappingApi.fetch_weather(session[:last_place_search])
+    else
+      @weather = []
     end
   end
 end

@@ -1,7 +1,7 @@
 <div>
   <br>
   <%= form_tag places_path do %>
-      City: <%= text_field_tag :city, params[:city] %>
+      city <%= text_field_tag :city, params[:city] %>
       <%= submit_tag "Search", class:'btn-xs btn-primary'%>
   <% end %>
 </div>
