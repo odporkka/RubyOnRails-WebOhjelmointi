@@ -22,7 +22,7 @@ b12 = Brewery.create name:"Abbaye de Leffe S.A.", year: 1240, active:true
 b13 = Brewery.create name:"Nokian Panimo", year: 1991, active:true
 
 #Users
-u1 = User.create username:"Ode", password:"Qwe123", password_confirmation:"Qwe123", admin:false, banned:false
+u1 = User.create username:"Ode", password:"Qwe123", password_confirmation:"Qwe123", admin:true, banned:false
 u2 = User.create username:"Masa", password:"Qwe123", password_confirmation:"Qwe123", admin:false, banned:false
 u3 = User.create username:"Tirppa", password:"Qwe123", password_confirmation:"Qwe123", admin:false, banned:false
 u4 = User.create username:"Henkka", password:"Qwe123", password_confirmation:"Qwe123", admin:false, banned:false

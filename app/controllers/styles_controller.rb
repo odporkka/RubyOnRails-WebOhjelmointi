@@ -3,7 +3,7 @@ class StylesController < ApplicationController
   before_action :ensure_that_admin, only: [:edit, :update, :destroy, :new]
 
   def index
-    @styles = Style.all
+    @styles = Style.all.order(:name)
   end
 
   def new
