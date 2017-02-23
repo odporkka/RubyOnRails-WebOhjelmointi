@@ -1,7 +1,7 @@
 <div>
   <br>
   <%= form_tag places_path do %>
-      city <%= text_field_tag :city, params[:city] %>
+      City: <%= text_field_tag :city, params[:city] %>
       <%= submit_tag "Search", class:'btn-xs btn-primary'%>
   <% end %>
 </div>
@@ -24,8 +24,8 @@
     </div>
 <% end %>
 
-<h4>Places to grab a pint: </h4>
 <% if @places %>
+<h4>Places to grab a pint: </h4>
     <table class="table table-condensed">
       <thead>
       <% Place.rendered_fields.each do |f| %>

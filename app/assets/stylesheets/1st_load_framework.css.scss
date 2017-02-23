@@ -38,10 +38,19 @@ img {
 
 // apply styles to HTML elements
 // to make views framework-neutral
+html{
+  background-image: url('beer_taps.jpg') !important;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+body{
+  background-color: transparentize(lightgrey, 0.1) !important;
+}
+
 main {
-  background-color: #eee;
   @extend .container;
-  background-color: #eee;
   padding-bottom: 80px;
   width: 100%;
   margin-top: 51px; // accommodate the navbar
@@ -59,7 +68,7 @@ footer {
   // bottom: 0;
   // left: 0;
   height: 30px;
-  // background-color: #233140;
+  background-color: inherit;
   padding: 5px 0px 0px 0px;
   // width: 100%;
   // text-align: center;
