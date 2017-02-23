@@ -1,5 +1,3 @@
-<p id="notice"><%= notice %></p>
-
 <h2> <%= @beer %> </h2>
 
 <p>
@@ -10,7 +8,7 @@
 <% if @beer.ratings.empty? %>
     <p>beer has not yet been rated!</p>
 <% else %>
-    <p>has been rated <%= @beer.ratings.count %> times, average score <%= @beer.average_rating %></p>
+    <p>Has been rated <%= @beer.ratings.count %> times, average score <%= round(@beer.average_rating) %></p>
 <% end %>
 
 <% if current_user %>
@@ -22,6 +20,7 @@
         <%= f.submit %>
     <% end %>
 
-    <%= link_to 'Edit', edit_beer_path(@beer) %>
-    <%= link_to 'Destroy', @beer, method: :delete, data: { confirm: 'Are you sure?' } %>
+    <% if current_user.admin %>
+        <%= edit_and_destroy_buttons(@beer) %>
+    <% end %>
 <% end %>

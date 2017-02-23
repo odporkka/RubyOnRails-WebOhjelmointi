@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
+  before_action :ensure_that_signed_in, only: [:edit, :update, :destroy]
 
   # GET /users
   # GET /users.json
@@ -63,6 +64,16 @@ class UsersController < ApplicationController
         format.json { head :no_content }
       end
     end
+  end
+
+  def toggle_ban
+    ensure_that_admin
+    user = User.find(params[:id])
+    user.update_attribute :banned, (not user.banned)
+
+    new_status = user.banned? ? "banned" : "unbanned"
+
+    redirect_to :back, notice:"user #{user.username} #{new_status}"
   end
 
   private

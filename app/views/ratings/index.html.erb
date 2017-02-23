@@ -38,7 +38,7 @@
           <td><%= link_to entry.favorite_beer.name, entry.favorite_beer %> </td>
           <td><%= link_to entry.favorite_brewery.name, entry.favorite_brewery %> </td>
           <td><%= link_to entry.favorite_style.name, entry.favorite_style %> </td>
-          <td><%= entry.average_rating %> </td>
+          <td><%= round(entry.average_rating) %> </td>
           <td><%= entry.ratings.count %> </td>
         </tr>
     <% end %>

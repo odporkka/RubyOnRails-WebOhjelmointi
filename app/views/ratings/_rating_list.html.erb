@@ -15,7 +15,7 @@
         <% else %>
             <td><%= link_to entry.username, entry %> </td>
         <% end %>
-        <td><%= entry.average_rating %> </td>
+        <td><%= round(entry.average_rating) %> </td>
         <td><%= entry.ratings.count %> </td>
       </tr>
   <% end %>

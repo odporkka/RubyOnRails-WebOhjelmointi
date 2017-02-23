@@ -1,5 +1,6 @@
 class StylesController < ApplicationController
   before_action :set_style, only: [:show, :edit, :update, :destroy]
+  before_action :ensure_that_admin, only: [:edit, :update, :destroy, :new]
 
   def index
     @styles = Style.all

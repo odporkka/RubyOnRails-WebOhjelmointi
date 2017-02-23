@@ -1,17 +1,20 @@
-<p id="notice"><%= notice %></p>
-
 <h2>
   <strong><%= @user.username %></strong>
 </h2>
+
+<% if @user.banned %>
+    <strong><span style="color:red">account frozen</span></strong><br>
+<% end %>
 
 <h4> Club memberships:</h4>
 
 <ul>
   <% @user.memberships.each do |membership| %>
       <li>
-        <%= link_to membership.beer_club.name, membership.beer_club %>, joined at: <%= membership.created_at.to_date.to_s%>
+        <%= link_to membership.beer_club.name, membership.beer_club %>, joined
+        at: <%= membership.created_at.to_date.to_s %>
         <% if @user == current_user %>
-            <%= link_to 'delete', membership, method: :delete, data: { confirm: 'Are you sure?' } %>
+            <%= link_to 'delete', membership, method: :delete, data: {confirm: 'Are you sure?'} %>
         <% end %>
       </li>
   <% end %>
@@ -22,16 +25,16 @@
     <p><strong> Favorite brewery:</strong> <%= @user.favorite_brewery.name %> </p>
     <p><strong> Favorite style:</strong> <%= @user.favorite_style.name %> </p>
 
-    <p><strong> Average rating:</strong> <%= @user.average_rating %></p>
+    <p><strong> Average rating:</strong> <%= round(@user.average_rating) %></p>
 
-    <p><strong>Has made <%= pluralize(@user.ratings.count, 'rating')%>:</strong></p>
+    <p><strong>Has made <%= pluralize(@user.ratings.count, 'rating') %>:</strong></p>
 
     <ul>
       <% @user.ratings.each do |r| %>
           <li>
             <%= r %>
             <% if @user == current_user %>
-                <%= link_to 'delete', r, method: :delete, data: { confirm: 'Are you sure?' } %>
+                <%= link_to 'delete', r, method: :delete, data: {confirm: 'Are you sure?'} %>
             <% end %>
           </li>
       <% end %>
@@ -39,7 +42,17 @@
 
 <% end %>
 
-<% if @user == current_user %>
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Destroy', user_path, method: :delete, data: { confirm: 'Are you sure?' } %>
+<% if current_user && current_user.admin && @user != current_user %>
+    <% if @user.banned %>
+        <%= link_to 'reactivate account', toggle_ban_user_path(@user.id), method: :post, class: 'btn-sm btn-danger' %>
+    <% else %>
+        <%= link_to 'freeze account', toggle_ban_user_path(@user.id), method: :post, class: 'btn-sm btn-danger' %>
+    <% end %>
 <% end %>
+
+<% if @user == current_user || (current_user && current_user.admin) %>
+    <%= link_to 'Change password', edit_user_path(@user) %> |
+    <%= link_to 'Delete account', user_path, method: :delete, data: {confirm: 'Are you sure?'} %>
+<% end %>
+
+

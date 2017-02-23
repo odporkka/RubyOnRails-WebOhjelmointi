@@ -6,11 +6,12 @@
 img {
   @extend .img-responsive;
   margin: 0 auto;
-  }
+}
+
 // override for the 'Home' navigation link
 .navbar-brand {
   font-size: inherit;
-  }
+}
 
 // THESE ARE EXAMPLES YOU CAN MODIFY
 // create your own classes
@@ -18,19 +19,23 @@ img {
 .column {
   @extend .col-md-6;
   @extend .text-center;
-  }
+}
+
 .form {
   @extend .col-md-6;
-  }
+}
+
 .form-centered {
   @extend .col-md-6;
   @extend .text-center;
-  }
+}
+
 .submit {
   @extend .btn;
   @extend .btn-primary;
   @extend .btn-lg;
-  }
+}
+
 // apply styles to HTML elements
 // to make views framework-neutral
 main {
@@ -40,8 +45,73 @@ main {
   padding-bottom: 80px;
   width: 100%;
   margin-top: 51px; // accommodate the navbar
-  }
+}
+
 section {
   @extend .row;
   margin-top: 20px;
+}
+
+footer {
+  // color: #fff;
+  // position: absolute;
+  // right: 0;
+  // bottom: 0;
+  // left: 0;
+  height: 45px;
+  // background-color: #233140;
+  padding: 5px 0px 0px 0px;
+  // width: 100%;
+  // text-align: center;
+
+}
+
+footer a {
+  color: $gray-light;
+  //&:hover {
+  //  color: #fff;
+  //  text-decoration: none;
+  //}
+}
+
+footer nav {
+  color: $gray-light;
+  float: right;
+  //&:hover {
+  //  color: #fff;
+  //  text-decoration: none;
+  //}
+}
+
+footer copyright {
+  color: $gray-light;
+  float: left;
+}
+
+footer ul {
+  float: right;
+  list-style: none;
+  li {
+    float: left;
+    margin-left: 15px;
   }
+}
+
+.header-icon {
+  position: relative;
+  z-index: 1000;
+  overflow: visible;
+  display: inline-block;
+  height: 50px;
+  width: 80px;
+  padding: 7px 20px 8px 0px;
+  float: left;
+}
+
+.footer-icon {
+  alt: "ruby";
+  display: inline-block;
+  margin: auto;
+  height: 20px;
+  width: 20px;
+}

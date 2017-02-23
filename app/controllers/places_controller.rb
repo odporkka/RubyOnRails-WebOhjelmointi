@@ -2,12 +2,9 @@ require 'beermapping_api'
 
 class PlacesController < ApplicationController
   before_action :set_places, only: [:show, :index]
+  before_action :set_weather, only: [:show, :index]
 
   def index
-      @last_city = session[:last_place_search]
-      if @last_city
-        @weather = BeermappingApi.fetch_weather(@last_city)
-      end
   end
 
   def show
@@ -17,12 +14,12 @@ class PlacesController < ApplicationController
   end
 
   def search
-    @places = BeermappingApi.places_in(params[:city])
     session[:last_place_search] = params[:city]
+    set_places
     if @places.empty?
       redirect_to places_path, notice: "No locations in #{params[:city]}"
     else
-      render :index
+      redirect_to places_path
     end
   end
 
@@ -31,6 +28,12 @@ class PlacesController < ApplicationController
   def set_places
     if session[:last_place_search]
       @places = BeermappingApi.places_in(session[:last_place_search])
+    end
+  end
+
+  def set_weather
+    if session[:last_place_search]
+      @weather = BeermappingApi.fetch_weather(session[:last_place_search])
     end
   end
 end

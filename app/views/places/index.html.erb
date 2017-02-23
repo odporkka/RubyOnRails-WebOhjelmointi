@@ -1,16 +1,18 @@
-<p id="notice"><%= notice %></p>
+<div>
+  <br>
+  <%= form_tag places_path do %>
+      City: <%= text_field_tag :city, params[:city] %>
+      <%= submit_tag "Search", class:'btn-xs btn-primary'%>
+  <% end %>
+</div>
 
-<%= form_tag places_path do %>
-    City: <%= text_field_tag :city, params[:city] %>
-    <%= submit_tag "Search", class:'btn-xs btn-primary'%>
-<% end %>
 
-<% if @last_city %>
+<% if !@weather.is_a?(Array) %>
     <div class="row ">
       <div class="col-sm-9">
-        <h3>Current beer weather in <%= @last_city %>:</h3>
+        <h3>Current beer weather in <%= session[:last_place_search] %>:</h3>
         <div class="col-sm-2">
-          <img height="100px" width="100px" src= <%= @weather.current['condition']['icon'] %>>
+          <img height="80px" width="80px" src= <%= @weather.current['condition']['icon'] %>>
         </div>
         <div class="col-sm-10">
           <%= @weather.current['condition']['text'] %><br>

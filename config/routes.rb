@@ -1,18 +1,22 @@
 Rails.application.routes.draw do
   resources :memberships
   resources :beer_clubs
-  resources :users
+  resources :users do
+    post 'toggle_ban', on: :member
+  end
   resources :beers
-  resources :breweries
+  resources :breweries do
+    post 'toggle_activity', on: :member
+  end
   get 'kaikki_bisset', to: 'beers#index'
   get 'signup', to: 'users#new'
   get 'signin', to: 'sessions#new'
   get 'places', to: 'places#index'
-  post 'places', to:'places#search'
+  post 'places', to: 'places#search'
   delete 'signout', to: 'sessions#destroy'
   resources :ratings, only: [:index, :new, :create, :destroy]
-  resources :styles, only: [:index, :show, :edit, :new, :create, :destroy]
-  resources :places, only:[:index, :show]
+  resources :styles
+  resources :places, only: [:index, :show]
   resource :session, only: [:new, :create, :destroy]
   resource :home, only: [:index]
 

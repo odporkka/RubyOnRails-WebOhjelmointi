@@ -6,7 +6,7 @@ class BeerClubsController < ApplicationController
   # GET /beer_clubs
   # GET /beer_clubs.json
   def index
-    @beer_clubs = BeerClub.all
+    @beer_clubs = BeerClub.all.order(:name)
   end
 
   # GET /beer_clubs/1
