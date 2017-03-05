@@ -10,12 +10,16 @@ env:
   - secure: vpYfB530r8dB+CYjP0Mz0KoZvAtDsu55KoE2Q4WS4Z21NZA0tAWDLZglQqqLVgS7l9XzyOoQeYciCL90+iN9RWPXAk7jsUo5RWo63V2BmqgyMIFlObpg/KGzEufT9a2Tyjn7cb5eBBpF2KlNFHh05GG9U746iDQ0iB0kxdBfkuH4LoFf9RaBrh6SIgmuJdrnbOiyFv2Ye3VpzdcjDYLQY8Ry4uPHEUNNUi7OufovawKZnmqi11BWluFJ7TDcqdy6E1LswfZmz/y9qnomztQC1JDEBBT9EiJ8V09hLZY9QmmD3zn5j14c5MlcT4gizTIV/YpS52rdfMf9mJH0WzRZC3PRQe4K8mOhE8/2yuUWHiYZsJioLCvlhuEjeYYsfV9dzPADcSm1JgfDwAqdA7nwB663gcDb5SsI1gEqEHkv6rZfXEsozPdzPBoHXrgvSvmZfMnzxmeVlGXHF8ihyfyq2JtF7VqVGa62DMeAZvsFGhtGw4V52S0AnD9GdwMH+FeKDfIhSKFjd1oTS66vSZ+GZT0Frh7lrHLAgBZmeQD9iChFNklszfeme1E0BWCb8Gia7Ki0DmAw/vFOfZ6+Ad2s/0wKgJIRH6suNX48YBESEQpAgc4ltIOIny7bmEo8dwGaQ/w3ru/G+ofnpCMmGHgtx1J5S8NMpVl0xqJaiMRFOXo=
   - secure: n8ADwLPEgNrHC2EkAynvuvJiqQsR0yyNp3wSA5DvGifAo0CfVUDW6d/nduub1x6Z2GWuUCW/v0AKfdKekcLykksJgSx3KoqxlCU+DwGfVSYeFQFOY+LANDjbSQI+nsjG1/r/GVZFFVoftGNSW+5tdyUsvyese1CEuh/hO3v8PLl542WvPD4PPFSrvt6XXgKBLrr4EWYivHwnNRyQjQNAL4qLXbEmvLzz8S9B4f+U61a8UswLEaXzPTMeHkpgizkXjeZabQFXe5dAPWd1H25P0S8f86FWFu1J+TzgK8UsooO8IfXXjbtD+kb3IMKXToRaLaYrjvMLx8jy2e7uZOKdHTTVjSwGDtyk9we41jXq5RZsYWylFx9mrxjpE46+4mfnvAGoYZFlBzph9BtiMfd8pBeyAq5uOfy30TyddHrwEUcU+RcTqsmS5s0b9PPkH1759gh0XhXmRd53iOWzQyOzJSvT39ziachlLrUbq5ib+0Dao3DihxD8zasZbNxFXB5MlZuZ+yJ5AVujFzyeu3tFaTPCTlbQieMIvzoF5W1Ij43y8VaMfhkRNFLzMQk7FDTH8+4n2BHVXvgvHPoXVDm82+oTEwrTiT/2iQZB+zp4qWhw9Cv3k7AnFAHy/aoaaqgZSWAlNBcxY0FRv/oWG050hotpkp0MRQZDCoqLt5EKS4Y=
   - secure: TGSKdmvP3jwuiCYOgkF+q8XrsUDD03JHrXggn0hTeYbMioX9pLe4YzAeVopMuIGWahUM0nlr+hDrHAGZYK4+P80h+jqcsB6pXWF1HNo7CROF269M34hzj6+okZkvC1Yj0WsiH8Qh+P8WXRq6qtwz1bE49wnoWfRo/EWQ1jaXb8mS2J4Jh8cwtF30k75SZN0a+Xyn2PRdPPQIxtmKOyxe59p7O7sAuQNX0MtLVR2vJx6apUt6m0WJ1Y14NQwQdPqai1eRfrtTK18BtFIYjh3T8yJmxlX8cGRu8jkSmji/2yI7C1gySuUEFF0M7pPdvUB0SY/KzFeGllBe0lbYmHKbBb4AVWQPCPIUbfR+GkLZEMAhS0qkKqlheq3W1WTMOVlnqClMSzdDA3sOczSGCtt2V6M/oqVZOEfRo3DfoB5mHIIRJve74i+0QoACz3ftOeSZnDf2N04uTK4+rawJCKd0kNNEQOJd+fveEyhwauPWe7xYRVzdPBs2nBkkDx+iZWHA8vO6YbxoyeJbloHmlSFUDDVqJub6r7PBnXSUUehwgfkMKId4xpcKuFq6eknQPwsr9QLIc5zHbTFg4cHSq2K2KaAzTk/9S4/tnrhF/aM2v471gcDlRN9sWYZeWqTeYjuhHtq5vKhIoeruekl4ktGeli9OCl66eGDqnYV0W6qrqYo=
+addons:
+  sauce_connect:
+    username: "odporkka"
+    secure: "t2l2eq14VcpsKXqjQqiG/4VX8/oXVTLEQJbtv/HGkHHmmzOUgpJvAcsIQmCpktOk5D/igO7/AxIn/5xlqQtUvTVUlATTEchrX9VrTf4BwGnRj3KOWJl70u/uORNvLGjlcAHwvncpNJKvtPAizNPp0g2wiTjBt0Ni7OmRoYZ2hzpbwm+fNvlHohjQPBdisMcfrmqxoTSUVZGyGhyssGmJqYhqpGjKeTf5x1XcSacA0XnQbO8el9EyETHJLAfbTjG3xKrrjMr3o9XnszGYh0e5LmXmtAzJGP4tjsdi7HJIacoptnyNP1bvJpUlTX0zVf33Yezv3+iG62CYPRMO+oHyAg6DGYTy0ieAcG82v3XnW6YjxhB6IojJVMJ2gTu/Q4H3NPnjank/tVrrhLOGc2O5e7Agza4amdvqMv0qnolyBZooksSd5U/u2YgSPGhSR8W8krWf5JNzsJLzsdqI9xOhFLx/41LC98m77UWKE72jJmltmGc+Z6stUhQBmIkEjs5g4iICi60ohwKK4Ou6zcYtyzN9P3U63/jqxmc8ex5o8t9q2enK+DoFrgs5LZSH21zYBbbg+jJAfYdBUAVYSQK8N+mIDJ5B14152+oIlm3v13ZhtI6PS+e35/vdwPnpNNfiNcBZyKGR0hHbvwkly8f/TUzE8SRqwdp+rL7r+ilEn9k="
 before_script:
-          - "export DISPLAY=:99.0"
-              - "sh -e /etc/init.d/xvfb start"
-                  - sleep 3 # give xvfb some time to start
-                      - rackup  # start a Web server
-                          - sleep 3 # give Web server some time to bind to sockets, etc
+  - "export DISPLAY=:99.0"
+  - "sh -e /etc/init.d/xvfb start"
+  - sleep 3 # give xvfb some time to start
+  - rackup  # start a Web server
+  - sleep 3 # give Web server some time to bind to sockets, etc
 script:
 - bundle exec rake db:drop db:create db:migrate db:seed --trace
 - RAILS_ENV=test bundle exec rake db:migrate --trace
@@ -23,10 +27,6 @@ script:
 - bundle exec rspec -fd spec/
 notifications:
   email: false
-addons:
-  sauce_connect:
-    username: "odporkka"
-    secure: "t2l2eq14VcpsKXqjQqiG/4VX8/oXVTLEQJbtv/HGkHHmmzOUgpJvAcsIQmCpktOk5D/igO7/AxIn/5xlqQtUvTVUlATTEchrX9VrTf4BwGnRj3KOWJl70u/uORNvLGjlcAHwvncpNJKvtPAizNPp0g2wiTjBt0Ni7OmRoYZ2hzpbwm+fNvlHohjQPBdisMcfrmqxoTSUVZGyGhyssGmJqYhqpGjKeTf5x1XcSacA0XnQbO8el9EyETHJLAfbTjG3xKrrjMr3o9XnszGYh0e5LmXmtAzJGP4tjsdi7HJIacoptnyNP1bvJpUlTX0zVf33Yezv3+iG62CYPRMO+oHyAg6DGYTy0ieAcG82v3XnW6YjxhB6IojJVMJ2gTu/Q4H3NPnjank/tVrrhLOGc2O5e7Agza4amdvqMv0qnolyBZooksSd5U/u2YgSPGhSR8W8krWf5JNzsJLzsdqI9xOhFLx/41LC98m77UWKE72jJmltmGc+Z6stUhQBmIkEjs5g4iICi60ohwKK4Ou6zcYtyzN9P3U63/jqxmc8ex5o8t9q2enK+DoFrgs5LZSH21zYBbbg+jJAfYdBUAVYSQK8N+mIDJ5B14152+oIlm3v13ZhtI6PS+e35/vdwPnpNNfiNcBZyKGR0hHbvwkly8f/TUzE8SRqwdp+rL7r+ilEn9k="
 deploy:
   provider: heroku
   app: rubyonrails2017
