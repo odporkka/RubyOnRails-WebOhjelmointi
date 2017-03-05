@@ -16,8 +16,8 @@ addons:
   jwt:
     secure: AlNqGbGGRU1qN7tlFsE/kUmeYBmmlIByf9N9W4bLqtbYAMBLZCkj/3CgOKDdlim7UHlcay4Y0gi4oHARcd3sxbK2AiN8ClocC0GCOQBhSPv4z3v+CP7PfUW8jTavbF93twDcIr4JHrabVuPK/T0L3rn7lJ/B3nVl8QsE2a8i3/u4pau/uu4X41bHNnf66Tx3XGrZd9rFuQM7cIzV0ObD+eL/bXcblRWWrALOgtqu1Y0ffUNmiCg3W4J6qZiULcSpJTp0W9yQE1K7V7XmcY2wtYH4Ej1W2H856yr6RqkypzGDDy/7U7hWL6QARyvonKmsM2soHHHJnbglERkJAfZ1T+miiQ7a1Ue2/VE3WcgUx955hHsWkTjde2xn47ZycJArfqBUEDwLwgzkywGtkQ7VhFRUATgn9d4T8JavHXhI2KWFSUC0kLxjq/gvDnKkJ0ndor3ptUAe7dx8hHA/ufRgVQvA+qJh80mWmYBxBCNINP8+1G3uNee+Lo9rhq2sIwL804CziMfacXe27cj+zBUAGsadx0S9Nxy2hnfNJNyWZY6GFcFTjnRbA1yCXKN81ei+69i5MUPNUokzfYQFjt4saOnsH+Kjd1B67CZSzXYXCRfPK+CQfwzGZVce/YI0rk00nHhRxqlxprtTC6y+4t/aPmBVViABFTC4TfzmE6RnMII=
 before_install:
--sudo apt-get -qq update 
--sudo apt-get install -y xvfb firefox
+- sudo apt-get -qq update 
+- sudo apt-get install -y xvfb firefox
 before_script:
 - export DISPLAY=:99.0
 - sh -e /etc/init.d/xvfb start
