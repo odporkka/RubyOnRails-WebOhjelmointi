@@ -12,14 +12,15 @@ env:
   - secure: TGSKdmvP3jwuiCYOgkF+q8XrsUDD03JHrXggn0hTeYbMioX9pLe4YzAeVopMuIGWahUM0nlr+hDrHAGZYK4+P80h+jqcsB6pXWF1HNo7CROF269M34hzj6+okZkvC1Yj0WsiH8Qh+P8WXRq6qtwz1bE49wnoWfRo/EWQ1jaXb8mS2J4Jh8cwtF30k75SZN0a+Xyn2PRdPPQIxtmKOyxe59p7O7sAuQNX0MtLVR2vJx6apUt6m0WJ1Y14NQwQdPqai1eRfrtTK18BtFIYjh3T8yJmxlX8cGRu8jkSmji/2yI7C1gySuUEFF0M7pPdvUB0SY/KzFeGllBe0lbYmHKbBb4AVWQPCPIUbfR+GkLZEMAhS0qkKqlheq3W1WTMOVlnqClMSzdDA3sOczSGCtt2V6M/oqVZOEfRo3DfoB5mHIIRJve74i+0QoACz3ftOeSZnDf2N04uTK4+rawJCKd0kNNEQOJd+fveEyhwauPWe7xYRVzdPBs2nBkkDx+iZWHA8vO6YbxoyeJbloHmlSFUDDVqJub6r7PBnXSUUehwgfkMKId4xpcKuFq6eknQPwsr9QLIc5zHbTFg4cHSq2K2KaAzTk/9S4/tnrhF/aM2v471gcDlRN9sWYZeWqTeYjuhHtq5vKhIoeruekl4ktGeli9OCl66eGDqnYV0W6qrqYo=
 addons:
   sauce_connect:
-    username: "odporkka"
-    secure: "t2l2eq14VcpsKXqjQqiG/4VX8/oXVTLEQJbtv/HGkHHmmzOUgpJvAcsIQmCpktOk5D/igO7/AxIn/5xlqQtUvTVUlATTEchrX9VrTf4BwGnRj3KOWJl70u/uORNvLGjlcAHwvncpNJKvtPAizNPp0g2wiTjBt0Ni7OmRoYZ2hzpbwm+fNvlHohjQPBdisMcfrmqxoTSUVZGyGhyssGmJqYhqpGjKeTf5x1XcSacA0XnQbO8el9EyETHJLAfbTjG3xKrrjMr3o9XnszGYh0e5LmXmtAzJGP4tjsdi7HJIacoptnyNP1bvJpUlTX0zVf33Yezv3+iG62CYPRMO+oHyAg6DGYTy0ieAcG82v3XnW6YjxhB6IojJVMJ2gTu/Q4H3NPnjank/tVrrhLOGc2O5e7Agza4amdvqMv0qnolyBZooksSd5U/u2YgSPGhSR8W8krWf5JNzsJLzsdqI9xOhFLx/41LC98m77UWKE72jJmltmGc+Z6stUhQBmIkEjs5g4iICi60ohwKK4Ou6zcYtyzN9P3U63/jqxmc8ex5o8t9q2enK+DoFrgs5LZSH21zYBbbg+jJAfYdBUAVYSQK8N+mIDJ5B14152+oIlm3v13ZhtI6PS+e35/vdwPnpNNfiNcBZyKGR0hHbvwkly8f/TUzE8SRqwdp+rL7r+ilEn9k="
+    username: odporkka
+  jwt:
+    secure: AlNqGbGGRU1qN7tlFsE/kUmeYBmmlIByf9N9W4bLqtbYAMBLZCkj/3CgOKDdlim7UHlcay4Y0gi4oHARcd3sxbK2AiN8ClocC0GCOQBhSPv4z3v+CP7PfUW8jTavbF93twDcIr4JHrabVuPK/T0L3rn7lJ/B3nVl8QsE2a8i3/u4pau/uu4X41bHNnf66Tx3XGrZd9rFuQM7cIzV0ObD+eL/bXcblRWWrALOgtqu1Y0ffUNmiCg3W4J6qZiULcSpJTp0W9yQE1K7V7XmcY2wtYH4Ej1W2H856yr6RqkypzGDDy/7U7hWL6QARyvonKmsM2soHHHJnbglERkJAfZ1T+miiQ7a1Ue2/VE3WcgUx955hHsWkTjde2xn47ZycJArfqBUEDwLwgzkywGtkQ7VhFRUATgn9d4T8JavHXhI2KWFSUC0kLxjq/gvDnKkJ0ndor3ptUAe7dx8hHA/ufRgVQvA+qJh80mWmYBxBCNINP8+1G3uNee+Lo9rhq2sIwL804CziMfacXe27cj+zBUAGsadx0S9Nxy2hnfNJNyWZY6GFcFTjnRbA1yCXKN81ei+69i5MUPNUokzfYQFjt4saOnsH+Kjd1B67CZSzXYXCRfPK+CQfwzGZVce/YI0rk00nHhRxqlxprtTC6y+4t/aPmBVViABFTC4TfzmE6RnMII=
 before_script:
-  - "export DISPLAY=:99.0"
-  - "sh -e /etc/init.d/xvfb start"
-  - sleep 3 # give xvfb some time to start
-  - rackup  # start a Web server
-  - sleep 3 # give Web server some time to bind to sockets, etc
+- export DISPLAY=:99.0
+- sh -e /etc/init.d/xvfb start
+- sleep 3
+- rackup
+- sleep 3
 script:
 - bundle exec rake db:drop db:create db:migrate db:seed --trace
 - RAILS_ENV=test bundle exec rake db:migrate --trace
