@@ -9,6 +9,8 @@ Rails.application.routes.draw do
     post 'toggle_activity', on: :member
   end
   get 'kaikki_bisset', to: 'beers#index'
+  get 'beerlist', to:'beers#list'
+  get 'brewerylist', to:'breweries#list'
   get 'signup', to: 'users#new'
   get 'signin', to: 'sessions#new'
   get 'places', to: 'places#index'

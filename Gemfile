@@ -29,11 +29,14 @@ group :test do
   gem 'factory_girl_rails'
   gem 'capybara'
   gem 'launchy'
-  gem 'selenium-webdriver'
+  gem 'selenium-webdriver', '2.53.4'
+  gem "chromedriver-helper"
+  gem 'database_cleaner'
   gem 'simplecov', require: false
   gem 'webmock'
 end
 
+gem 'jquery-turbolinks'
 gem 'bootstrap-sass'
 gem 'httparty'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
