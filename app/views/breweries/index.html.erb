@@ -1,17 +1,5 @@
 <h2>Breweries</h2>
 
-<div style="border-style: solid;">
-  brewerylist-name-true: <%= ActionController::Base.new.fragment_exist?( 'brewerylist-name-true' ) %>
-  <br>
-  brewerylist-name-false: <%= ActionController::Base.new.fragment_exist?( 'brewerylist-name-false' ) %>
-  <br>
-  brewerylist-year-true: <%= ActionController::Base.new.fragment_exist?( 'brewerylist-year-true' ) %>
-  <br>
-  brewerylist-year-false: <%= ActionController::Base.new.fragment_exist?( 'brewerylist-year-false' ) %>
-  <br>
-  current: <%= "brewerylist-#{@order}-#{@order_asc}" %>
-</div>
-
 <% cache "brewerylist-#{@order}-#{@order_asc}", skip_digest: true do %>
 
 <h3>Active</h3>
