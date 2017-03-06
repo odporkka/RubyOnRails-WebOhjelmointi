@@ -21,6 +21,10 @@ Rails.application.routes.draw do
   resources :places, only: [:index, :show]
   resource :session, only: [:new, :create, :destroy]
   resource :home, only: [:index]
+  get 'auth/:provider/callback', to: 'sessions#create_oauth'
+  resources :memberships do
+    post 'confirm', on: :member
+  end
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

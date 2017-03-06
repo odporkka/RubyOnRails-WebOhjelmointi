@@ -10,13 +10,31 @@
 
 <ul>
   <% @user.memberships.each do |membership| %>
-      <li>
-        <%= link_to membership.beer_club.name, membership.beer_club %>, joined
-        at: <%= membership.created_at.to_date.to_s %>
-        <% if @user == current_user %>
-            <%= link_to 'delete', membership, method: :delete, data: {confirm: 'Are you sure?'} %>
-        <% end %>
-      </li>
+      <% if membership.confirmed == true %>
+          <li>
+            <%= link_to membership.beer_club.name, membership.beer_club %>, joined
+            at: <%= membership.created_at.to_date.to_s %>
+            <% if @user == current_user %>
+                <%= link_to 'delete', membership, method: :delete, data: {confirm: 'Are you sure?'} %>
+            <% end %>
+          </li>
+      <% end %>
+  <% end %>
+</ul>
+
+<h4> Applies:</h4>
+
+<ul>
+  <% @user.memberships.each do |membership| %>
+      <% if membership.confirmed == false %>
+          <li>
+            <%= link_to membership.beer_club.name, membership.beer_club %>, joined
+            at: <%= membership.created_at.to_date.to_s %>
+            <% if @user == current_user %>
+                <%= link_to 'delete', membership, method: :delete, data: {confirm: 'Are you sure?'} %>
+            <% end %>
+          </li>
+      <% end %>
   <% end %>
 </ul>
 

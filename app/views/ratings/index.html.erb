@@ -1,3 +1,4 @@
+<% cache 'ratings_page', expires_in:10.minutes do %>
 <h2>Wall of fame</h2>
 
 <p><strong>Number of ratings: <%= @ratings.count %></strong></p>
@@ -55,5 +56,5 @@
     <% end %>
   </ul>
 </div>
-
+<% end %>
 

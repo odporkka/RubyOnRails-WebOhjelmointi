@@ -33,13 +33,13 @@ u7 = User.create username:"Hop-a-holic666", password:"Qwe123", password_confirma
 bc1 = BeerClub.create name:"Porin panijat", founded:1995, city:"Pori"
 bc2 = BeerClub.create name:"Stadin tissuttelijat", founded:1965, city:"Helsinki"
 
-Membership.create beer_club_id: 1, user_id: 1
-Membership.create beer_club_id: 1, user_id: 2
-Membership.create beer_club_id: 2, user_id: 1
-Membership.create beer_club_id: 2, user_id: 2
-Membership.create beer_club_id: 2, user_id: 3
-Membership.create beer_club_id: 2, user_id: 4
-Membership.create beer_club_id: 2, user_id: 7
+Membership.create beer_club_id: 1, user_id: 1, confirmed: true
+Membership.create beer_club_id: 1, user_id: 2, confirmed: true
+Membership.create beer_club_id: 2, user_id: 1, confirmed: true
+Membership.create beer_club_id: 2, user_id: 2, confirmed: false
+Membership.create beer_club_id: 2, user_id: 3, confirmed: true
+Membership.create beer_club_id: 2, user_id: 4, confirmed: true
+Membership.create beer_club_id: 2, user_id: 7, confirmed: false
 
 s1 = Style.create name:"Euro Pale Lager", description:"Similar to the Munich Helles story, many European countries reacted to the popularity of early pale lagers by brewing their own. Hop flavor is significant and of noble varieties, bitterness is moderate, and both are backed by a solid malt body and sweetish notes from an all-malt base."
 s1 = Style.create name:"English Pale Ale", description:"The English Pale Ale can be traced back to the city of Burton-upon-Trent, a city with an abundance of rich hard water. This hard water helps with the clarity as well as enhancing the hop bitterness. This ale can be from golden to reddish amber in color with generally a good head retention. A mix of fruity, hoppy, earthy, buttery and malty aromas and flavors can be found. Typically all ingredients are English."

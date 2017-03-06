@@ -1,14 +1,17 @@
-<h2> <%= @beer %> </h2>
+<% cache @beer do %>
 
-<p>
-  <strong>Style:</strong>
-  <%= @beer.style.name %>
-</p>
+    <h2> <%= @beer %> </h2>
 
-<% if @beer.ratings.empty? %>
-    <p>beer has not yet been rated!</p>
-<% else %>
-    <p>Has been rated <%= @beer.ratings.count %> times, average score <%= round(@beer.average_rating) %></p>
+    <p>
+      <strong>Style:</strong>
+      <%= @beer.style.name %>
+    </p>
+
+    <% if @beer.ratings.empty? %>
+        <p>beer has not yet been rated!</p>
+    <% else %>
+        <p>Has been rated <%= @beer.ratings.count %> times, average score <%= round(@beer.average_rating) %></p>
+    <% end %>
 <% end %>
 
 <% if current_user %>

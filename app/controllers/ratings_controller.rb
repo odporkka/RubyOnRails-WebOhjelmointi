@@ -1,5 +1,6 @@
 class RatingsController < ApplicationController
   def index
+    # Page is cached and expires in 10 min
     @ratings = Rating.all
     @recent = Rating.recent
     @most_active = User.top3active

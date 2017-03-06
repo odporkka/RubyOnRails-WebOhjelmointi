@@ -7,7 +7,7 @@ group :production do
 end
 
 group :development do
-
+  gem 'rack-mini-profiler'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   # Access an IRB console on exception pages or by using <%= console %> in views
@@ -36,6 +36,8 @@ group :test do
   gem 'webmock'
 end
 
+gem 'omniauth-github'
+gem 'sucker_punch', '~> 2.0'
 gem 'jquery-turbolinks'
 gem 'bootstrap-sass'
 gem 'httparty'

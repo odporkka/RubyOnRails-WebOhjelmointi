@@ -15,6 +15,7 @@ class BeerClubsController < ApplicationController
   def show
     is_a_member
     @memberships = @beer_club.memberships
+    @applies = @beer_club.applies
     @membership = Membership.new
     @membership.beer_club_id = params[:id]
     if current_user && @is_a_member == true
@@ -42,6 +43,7 @@ class BeerClubsController < ApplicationController
 
     respond_to do |format|
       if @beer_club.save
+        Membership.create({:beer_club_id => @beer_club.id, :user_id => current_user.id, :confirmed => true})
         format.html { redirect_to @beer_club, notice: 'Beer club was successfully created.' }
         format.json { render :show, status: :created, location: @beer_club }
       else

@@ -26,10 +26,11 @@ class MembershipsController < ApplicationController
   # POST /memberships.json
   def create
     @membership = Membership.new params.require(:membership).permit(:beer_club_id, :user_id)
+    @membership.confirmed = false
 
     if @membership.save
       current_user.memberships << @membership
-      redirect_to beer_club_path(@membership.beer_club_id), notice: "Welcome to club #{current_user.username}!"
+      redirect_to beer_club_path(@membership.beer_club_id), notice: "Thank you for applying to club #{current_user.username}!"
     else
       @beer_clubs = BeerClub.all
       render :new
@@ -61,14 +62,21 @@ class MembershipsController < ApplicationController
     end
   end
 
-  private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_membership
-      @membership = Membership.find(params[:id])
-    end
+  def confirm
+    membership = Membership.find(params[:id])
+    membership.confirmed = true
+    membership.save
+    redirect_to :back, notice: "Membership confirmed"
+  end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def membership_params
-      params.require(:membership).permit(:beer_club_id, :user_id)
-    end
+  private
+  # Use callbacks to share common setup or constraints between actions.
+  def set_membership
+    @membership = Membership.find(params[:id])
+  end
+
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def membership_params
+    params.require(:membership).permit(:beer_club_id, :user_id)
+  end
 end
